@@ -3,6 +3,7 @@
     <head>
         <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
         <style>
             #captureButton {
                 position: absolute;
@@ -36,17 +37,14 @@
 
         <script>
             document.getElementById('captureButton').addEventListener('click', function() {
-                const scene = document.querySelector('a-scene');
-                scene.renderer.render(scene.object3D, scene.camera);
-                const canvas = scene.renderer.domElement;
-
-                // 画像データを取得し、ダウンロードリンク作成
-                canvas.toBlob(function(blob) {
-                    const link = document.createElement('a');
-                    link.href = URL.createObjectURL(blob);
-                    link.download = 'ar-capture.png';
-                    link.click();
-                }, 'image/png');
+                html2canvas(document.body).then(canvas => {
+                    canvas.toBlob(function(blob) {
+                        const link = document.createElement('a');
+                        link.href = URL.createObjectURL(blob);
+                        link.download = 'ar-capture.png';
+                        link.click();
+                    });
+                });
             });
         </script>
     </body>
