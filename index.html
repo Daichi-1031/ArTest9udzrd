@@ -17,10 +17,6 @@
             embedded
             gesture-detector
         >
-        <a-assets>
-            <video id="my-video" autoplay loop="true" src="asset1.mp4" crossorigin="anonymous"></video>
-        </a-assets>
-            
             <a-marker
                 type="pattern"
                 preset="custom"
@@ -34,13 +30,13 @@
                 smoothThreshold="5"
                 id="markerA"
             >
-                <a-video
-                    src="#my-video"
+                <a-image
+                    src="assets/asset1.png"
                     scale="1 1 1"
                     class="clickable"
                     rotation="-90 0 0"
                     gesture-handler
-                ></a-video>
+                ></a-image>
             </a-marker>
 
             <a-marker
