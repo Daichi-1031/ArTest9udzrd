@@ -17,6 +17,11 @@
             embedded
             gesture-detector
         >
+        
+        <a-assets>
+            <video id="transparent-video" src="assets/asset1.webm" autoplay loop="true" muted crossorigin="anonymous"></video>
+        </a-assets>
+
             <a-marker
                 type="pattern"
                 preset="custom"
@@ -30,13 +35,14 @@
                 smoothThreshold="5"
                 id="markerA"
             >
-                <a-image
-                    src="assets/asset1.png"
+                <a-video
+                    src="#transparent-video"
                     scale="1 1 1"
                     class="clickable"
                     rotation="-90 0 0"
+                    material="shader: standard; transparent: true; alphaTest: 0.5"
                     gesture-handler
-                ></a-image>
+                ></a-video>
             </a-marker>
 
             <a-marker
