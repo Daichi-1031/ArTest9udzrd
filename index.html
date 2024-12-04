@@ -17,6 +17,10 @@
             embedded
             gesture-detector
         >
+        <a-assets>
+            <video id="my-video" autoplay loop="true" src="asset1.mov" crossorigin="anonymous"></video>
+        </a-assets>
+            
             <a-marker
                 id="animated-marker"
                 type="pattern"
@@ -32,7 +36,7 @@
                 id="markerA"
             >
                 <a-video
-                    src="asset1.mov"
+                    src="#my-video"
                     scale="1 1 1"
                     class="clickable"
                     rotation="-90 0 0"
