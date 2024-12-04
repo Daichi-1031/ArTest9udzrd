@@ -5,6 +5,8 @@
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.2.0/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/shubham-goel/aframe-lottie-component/aframe-lottie-component.min.js"></script>
     </head>
 
     <body style="margin: 0; overflow: hidden;">
@@ -18,10 +20,12 @@
             gesture-detector
         >
         
-        <a-assets>
+        <!--
+            <a-assets>
             <video id="transparent-video" src="assets/asset1.webm" autoplay loop="true" muted crossorigin="anonymous"></video>
         </a-assets>
-
+            -->
+            
             <a-marker
                 type="pattern"
                 preset="custom"
@@ -35,14 +39,13 @@
                 smoothThreshold="5"
                 id="markerA"
             >
-                <a-video
-                    src="#transparent-video"
+                <a-entity
+                    lottie="src: url(assets/asset1.json); loop: true; autoplay: true"
                     scale="1 1 1"
                     class="clickable"
                     rotation="-90 0 0"
-                    material="shader: standard; transparent: true; alphaTest: 0.5"
                     gesture-handler
-                ></a-video>
+                ></a-entity>
             </a-marker>
 
             <a-marker
